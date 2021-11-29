@@ -60,10 +60,6 @@ $postsList = [
 
 ];
 
-echo "<pre>";
-var_dump($postsList["26-08-2021"]);
-echo "</pre>";
-
 
 ?>
 
@@ -76,12 +72,24 @@ echo "</pre>";
     <title>Document</title>
 </head>
 <body>
-    <div style="text-align: center;">
+    <div>
         <ul>
             <?php 
-                for ($i=0; $i < count($postsList); $i++) { 
-                    $post = $postsList[$i];
-                    echo "<li> $post </li>";
+                for ($i=0; $i < count(array_keys($postsList)); $i++) { 
+                    $date  = array_keys($postsList)[$i];
+                    $numOfPosts =  count($postsList[$date]);
+                    
+                    echo "<li> <h3> $date </h3></li>";
+                    
+                    for ($j=0; $j < $numOfPosts; $j++) { 
+                        echo "Autore del post: " . $postsList[$date][0]['author'] . "<br>";
+                        echo "Orario pubblicazione: " . $postsList[$date][$j]['hour'] . "<br>";
+                        echo "Testo del post: " . $postsList[$date][$j]['text'] . "<br> <br>";                           
+                    }
+
+                    
+                    
+                                   
                 }
             
             
