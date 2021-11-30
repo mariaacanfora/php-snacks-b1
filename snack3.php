@@ -4,7 +4,7 @@
 $arr = [];
 $max = 15;
 
-while (count($arr) <= $max) {
+while (count($arr) < $max) {
     $num  = rand(1, 100);
 
     if (!in_array($num, $arr)){
